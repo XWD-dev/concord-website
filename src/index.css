@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 97%;
+    --foreground: 24 14% 16%;
+    --card: 0 0% 100%;
+    --card-foreground: 24 14% 16%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 24 14% 16%;
+    --primary: 26 30% 43%;
+    --primary-foreground: 40 33% 97%;
+    --secondary: 34 30% 92%;
+    --secondary-foreground: 24 14% 16%;
+    --muted: 34 30% 92%;
+    --muted-foreground: 25 10% 45%;
+    --accent: 20 40% 90%;
+    --accent-foreground: 24 14% 16%;
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 40 33% 97%;
+    --border: 30 20% 85%;
+    --input: 30 20% 85%;
+    --ring: 26 30% 43%;
+    --radius: 0.125rem;
+  }
+
+  * { @apply border-border; }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+  }
+
+  ::selection { background: #b98f6a; color: #fffaf3; }
+}
+
+@layer utilities {
+  .font-display { font-family: 'Playfair Display', serif; }
+
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slow-zoom {
+  from { transform: scale(1.06); }
+  to { transform: scale(1); }
+}
+@keyframes drift {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-fade-up { animation: fade-up .9s ease-out both; }
+.animate-slow-zoom { animation: slow-zoom 1.8s ease-out both; }
+.animate-drift { animation: drift 8s ease-in-out infinite; }
